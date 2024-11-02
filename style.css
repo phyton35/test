@@ -3,6 +3,7 @@ body {
     font-size: 15px; /* Размер основного шрифта в <p></p>  */
     background-color: #f0f0f0; /* Цвет фона веб-страницы */
     color: #333333; /* Цвет основного текста */ 
+    background-color: #FD98FB
 }
 h1 {
     color: #00a800; /* Цвет заголовка */
