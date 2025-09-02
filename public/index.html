@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <title>Онлайн-пользователи</title>
+  <style>
+    body {
+      font-family: sans-serif;
+      text-align: center;
+      margin-top: 50px;
+    }
+    #count {
+      font-size: 48px;
+      color: #4CAF50;
+    }
+  </style>
+</head>
+<body>
+  <h1>Сейчас на сайте:</h1>
+  <div id="count">0</div>
+
+  <script>
+    const countEl = document.getElementById('count');
+    const protocol = location.protocol === 'https:' ? 'wss' : 'ws';
+    const socket = new WebSocket(`${protocol}://${location.host}`);
+
+    socket.onmessage = (event) => {
+      const data = JSON.parse(event.data);
+      countEl.textContent = data.count;
+    };
+  </script>
+</body>
+</html>
